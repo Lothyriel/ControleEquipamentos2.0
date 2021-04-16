@@ -1,0 +1,7 @@
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\bin\Debug\Controle de Equipamentos.exe.config
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\bin\Debug\Controle de Equipamentos.exe
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\bin\Debug\Controle de Equipamentos.pdb
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\obj\Debug\Controle de Equipamentos.csprojAssemblyReference.cache
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\obj\Debug\Controle de Equipamentos.csproj.CoreCompileInputs.cache
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\obj\Debug\Controle de Equipamentos.exe
+C:\Users\JX\Documents\GitHub\Controle de Equipamentos\Controle de Equipamentos\obj\Debug\Controle de Equipamentos.pdb
