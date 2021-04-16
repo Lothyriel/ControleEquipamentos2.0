@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Equipamentos_Junior
 {
@@ -25,7 +23,7 @@ namespace Equipamentos_Junior
 
         public override string ToString()
         {
-            return "Equipamento{" + "Nome:" + nome + "/ Nro_serie:" + nro_serie + "/ Fabricante:" + fabricante + '}';
+            return "Equipamento{" + "Nome:" + nome + "/ Nro_serie: " + nro_serie + "/ Preço: " + preco + "/ Data_Fabricação: " + data_fabricacao.ToString("dd/MM/yyyy") + "/ Fabricante:" + fabricante + '}';
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Equipamentos_Junior
 {
@@ -18,10 +16,6 @@ namespace Equipamentos_Junior
             this.equipamento = equipamento;
             this.data_abertura = data_abertura;
         }
-        private static string printarData(DateTime data)
-        {
-            return data.Day + "/" + data.Month + "/" + data.Year;
-        }
         public int diasAberto(DateTime data)
         {
             TimeSpan diferenca = DateTime.Now.Subtract(data);
@@ -29,7 +23,7 @@ namespace Equipamentos_Junior
         }
         public override String ToString()
         {
-            return "Chamado{" + "Título:" + titulo + " " + equipamento.Nome + ", Data_abertura:" + printarData(data_abertura) + " Dias_em_aberto:" + diasAberto(data_abertura) + '}';
+            return "Chamado{" + "Título:" + titulo + "/ Equipamento: " + equipamento.Nome + "/ Data_abertura: " + data_abertura.ToString("dd/MM/yyyy") + "/ Dias_em_aberto: " + diasAberto(data_abertura) + '}';
         }
     }
 }
