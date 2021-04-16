@@ -71,39 +71,39 @@ namespace Equipamentos_Junior
             while (true)
             {
                 Console.WriteLine("Digite o nome do equipamento");
-                nome = "VOLT TV"; //Console.ReadLine();
+                nome = Console.ReadLine(); //"VOLT TV"; //
                 if (nome.Length > 5) { break; }
             }
             while (true)
             {
                 Console.WriteLine("Digite o preço do equipamento");
-                string precoStr = "3000"; //Console.ReadLine();
+                string precoStr = Console.ReadLine(); //"3000"; //
                 if (double.TryParse(precoStr, out preco)) { break; }
             }
             while (true)
             {
-                Console.WriteLine("Digite o número de série do equipamento");
-                string nro_serieStr = "1000"; //Console.ReadLine();
+                Console.WriteLine("Digite o número de série do equipamento (números)");
+                string nro_serieStr = Console.ReadLine(); //"1000"; //
                 if (int.TryParse(nro_serieStr, out nro_serie)) { break; }
             }
             while (true)
             {
-                Console.WriteLine("Digite a data de fabricação do equipamento");
-                string data_fabrStr = "27/04/2001"; //Console.ReadLine();
+                Console.WriteLine("Digite a data de fabricação do equipamento no formato (dd/MM/aaaa)");
+                string data_fabrStr = Console.ReadLine(); //"27/04/2001"; //
                 if (DateTime.TryParse(data_fabrStr, out data_fabr)) { break; };
             }
             while (true)
             {
                 Console.WriteLine("Digite o fabricante do equipamento");
-                fabricante = "LG"; //Console.ReadLine();
+                fabricante = Console.ReadLine(); //"LG"; //
                 if (fabricante.Length > 1) { break; }
             }
 
             //AUMENTANDO O ARRAY E INSERINDO VALORES JÁ VALIDADOS
             Array.Resize(ref equip, equip.Length + 1);
-            Equipamentos e = new Equipamentos(nome, preco, nro_serie, data_fabr, fabricante);
-            if (e == -1) { equip[equip.Length - 1] = e; }
-            else { equip[e] = e; }
+            Equipamentos eq = new Equipamentos(nome, preco, nro_serie, data_fabr, fabricante);
+            if (e == -1) { equip[equip.Length - 1] = eq; }
+            else { equip[e] = eq; }
         }   //INT E INDICA SE O VALOR É NOVO OU É UM EDIT DE UM VALOR ANTERIOR
         public static void cadastrarCham(int e)
         {
@@ -117,26 +117,26 @@ namespace Equipamentos_Junior
                 while (true)
                 {
                     Console.WriteLine("Digite o titulo do chamado");
-                    titulo = "1"; //Console.ReadLine();
+                    titulo = Console.ReadLine(); //"1"; //
                     if (titulo.Length >= 1) { break; }
                 }
                 while (true)
                 {
                     Console.WriteLine("Digite a descrição do chamado");
-                    desc = "Celular Explodiu carregando"; //Console.ReadLine();
+                    desc = Console.ReadLine(); //"Celular Explodiu carregando"; //
                     if (desc.Length >= 1) { break; }
                 }
                 while (true)
                 {
                     Console.WriteLine("Digite o número do equipamento");
                     printArray(equip);
-                    string equipStr = "1"; //Console.ReadLine();
+                    string equipStr = Console.ReadLine(); //"1"; //
                     if (int.TryParse(equipStr, out iEquip) && iEquip <= equip.Length && iEquip > 0) { break; }
                 }
                 while (true)
                 {
-                    Console.WriteLine("Digite a data de abertura do chamado");
-                    string data_abStr = "27/04/2011"; //Console.ReadLine();
+                    Console.WriteLine("Digite a data de abertura do chamado no formato (dd/MM/aaaa)");
+                    string data_abStr = Console.ReadLine(); //"27/04/2011"; //
                     if (DateTime.TryParse(data_abStr, out data_ab)) { break; };
                 }
 
@@ -151,8 +151,8 @@ namespace Equipamentos_Junior
             while (true)
             {
                 Console.WriteLine("Digite o indice para exclusão ou digite 0 para cancelar");
-                string opcao = "1"; //Console.ReadLine();
                 printArray(equip);
+                string opcao = Console.ReadLine(); //"1"; //
                 if (!int.TryParse(opcao, out int opcaoInt) || opcaoInt <= 0 || opcaoInt > equip.Length) { break; }
                 else
                 {
@@ -171,8 +171,8 @@ namespace Equipamentos_Junior
             while (true)
             {
                 Console.WriteLine("Digite o indice para exclusão ou digite 0 para cancelar");
-                string opcao = "1"; //Console.ReadLine();
                 printArray(cham);
+                string opcao = Console.ReadLine(); //"1"; //
                 if (!int.TryParse(opcao, out int opcaoInt) || opcaoInt <= 0 || opcaoInt > cham.Length) { break; }
                 else
                 {
@@ -191,8 +191,8 @@ namespace Equipamentos_Junior
             while (true)
             {
                 Console.WriteLine("Digite o indice para editar ou digite 0 para cancelar");
-                string opcao = "1"; //Console.ReadLine();
                 printArray(array);
+                string opcao = Console.ReadLine(); //"1"; //
                 if (!int.TryParse(opcao, out int opcaoInt) || opcaoInt <= 0 || opcaoInt > cham.Length) { break; }
                 else
                 {
