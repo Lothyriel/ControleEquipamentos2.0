@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67197312-1088-4D1B-82ED-7EFA50A07016}</ProjectGuid>
+    <ProjectGuid>{D79904AC-36C0-4417-AAEF-9D4D144F0444}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Controle_de_Equipamentos</RootNamespace>
-    <AssemblyName>Controle de Equipamentos</AssemblyName>
+    <AssemblyName>Controle-de-Equipamentos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
