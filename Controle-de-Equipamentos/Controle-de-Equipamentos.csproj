@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chamados.cs" />
+    <Compile Include="Controlador.cs" />
     <Compile Include="Equipamentos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

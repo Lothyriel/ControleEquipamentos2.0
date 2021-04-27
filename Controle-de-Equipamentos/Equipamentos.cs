@@ -18,12 +18,20 @@ namespace Equipamentos_Junior
             this.data_fabricacao = data_fabricacao;
             this.fabricante = fabricante;
         }
-
-        public string Nome { get => nome; set => nome = value; }
+        public string Nome { get => nome;}
+        public int Nro_serie { get => nro_serie;}
 
         public override string ToString()
         {
             return "Equipamento{" + "Nome:" + nome + "/ Nro_serie: " + nro_serie + "/ Preço: " + preco + "/ Data_Fabricação: " + data_fabricacao.ToString("dd/MM/yyyy") + "/ Fabricante:" + fabricante + '}';
+        }
+        public override bool Equals(object obj)
+        {
+            return (this.nro_serie == ((Equipamentos)obj).nro_serie);
+        }
+        public override int GetHashCode() //    ^ = XOR, ou exclusivo, em operacoes com inteiros os transforma em binario faz a operacao bit a bit
+        {
+            return nro_serie.GetHashCode() ^ nome.GetHashCode();
         }
     }
 }
