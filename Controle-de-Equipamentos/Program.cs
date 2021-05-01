@@ -91,7 +91,7 @@ namespace Equipamentos_Junior
 
             else
             {
-                controller.cadastrarEquip(indice, eq);
+                controller.cadastrar(indice, eq, controller.Equip);
             }
         }
         private static void cadastrarCham(int indice)
@@ -105,7 +105,7 @@ namespace Equipamentos_Junior
 
                 else
                 {
-                    controller.cadastrarCham(indice, c);
+                    controller.cadastrar(indice, c, controller.Cham);
                 }
             }
         }

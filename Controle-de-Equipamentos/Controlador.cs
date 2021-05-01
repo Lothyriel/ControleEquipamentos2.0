@@ -9,34 +9,29 @@ namespace Equipamentos_Junior
 
         internal Equipamentos[] Equip { get => equip; }
         internal Chamados[] Cham { get => cham; }
-
-        public void cadastrarEquip(int indice, Equipamentos eq) //INDICE = -1 INDICA QUE O VALOR É NOVO, != -1 INDICA UM EDIT DE UM VALOR ANTERIOR
-        {
-            if (indice == -1)           
-            {
-                Array.Resize(ref equip, equip.Length + 1);
-                equip[equip.Length - 1] = eq;
-            }
-            else { equip[indice - 1] = eq; }
-        }
-        public void cadastrarCham(int indice, Chamados c)
+        public void cadastrar(int indice, Object obj, Object[] array)
         {
             if (indice == -1)
             {
-                Array.Resize(ref cham, cham.Length + 1);
-                cham[cham.Length - 1] = c;
+                Array.Resize(ref array, array.Length + 1);
+                array[array.Length - 1] = obj;
             }
-            else { cham[indice - 1] = c; }
+            else { array[indice - 1] = obj; }
+            //Salvando as mudanças no array da classe
+            if (array.Equals(equip)) { equip = (Equipamentos[])array;}
+            else if (array.Equals(cham)) { cham = (Chamados[])array;}
         }
         public void excluir(int indice, Object[] array)
         {
             for (int i = indice; i < array.Length; i++)
             {
-                Object e = array[i];
-                array[i - 1] = e;
+                Object obj = array[i];
+                array[i - 1] = obj;
             }
-            if (array.Equals(equip)) { equip = (Equipamentos[])array; Array.Resize(ref equip, equip.Length - 1); }
-            else if (array.Equals(cham)) { cham = (Chamados[])array; Array.Resize(ref cham, cham.Length - 1); }
+            Array.Resize(ref array, array.Length - 1);
+
+            if (array.Equals(equip)) { equip = (Equipamentos[])array;  }
+            else if (array.Equals(cham)) { cham = (Chamados[])array;}
         }
     }
 }
