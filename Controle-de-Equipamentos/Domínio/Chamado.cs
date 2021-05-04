@@ -1,15 +1,15 @@
 ﻿using System;
 
-namespace Equipamentos_Junior
+namespace Controle_de_Equipamentos.Domínio
 {
-    class Chamados
+    class Chamado
     {
         private string titulo;
         private string desc;
-        private Equipamentos equipamento;
+        private Equipamento equipamento;
         private DateTime data_abertura;
 
-        public Chamados(string titulo, String desc, Equipamentos equipamento, DateTime data_abertura)
+        public Chamado(string titulo, String desc, Equipamento equipamento, DateTime data_abertura)
         {
             this.titulo = titulo;
             this.desc = desc;
@@ -17,7 +17,7 @@ namespace Equipamentos_Junior
             this.data_abertura = data_abertura;
         }
         public string Titulo { get => titulo; }
-        internal Equipamentos Equipamento { get => equipamento;}
+        internal Equipamento Equipamento { get => equipamento;}
 
         private int diasAberto(DateTime data)
         {
@@ -30,7 +30,7 @@ namespace Equipamentos_Junior
         }
         public override bool Equals(object obj)
         {
-            return (this.titulo == ((Chamados)obj).titulo);
+            return (this.titulo == ((Chamado)obj).titulo);
         }
         public override int GetHashCode() //    ^ = XOR, ou exclusivo, em operacoes com inteiros os transforma em binario faz a operacao bit a bit
         {

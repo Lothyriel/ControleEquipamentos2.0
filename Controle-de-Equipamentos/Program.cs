@@ -1,13 +1,25 @@
-﻿using System;
+﻿using Controle_de_Equipamentos.Controladores;
+using Controle_de_Equipamentos.Telas;
+using Controle_de_Equipamentos.Validadores;
+using System;
 
-namespace Equipamentos_Junior
+namespace Controle_de_Equipamentos
 {
     class Program
     {
-        private static Controlador controller = new Controlador();
+        private static ControladorEquip controllerE = new ControladorEquip();
+        private static ValidadorEquip validadorE = new ValidadorEquip(controllerE);
+        private static TelaEquip telaE = new TelaEquip(controllerE, validadorE);
 
-        private static void Main(string[] args) { menu(); }
-        private static void menu()
+        private static ControladorCham controllerC = new ControladorCham();
+        private static ValidadorCham validadorC = new ValidadorCham(controllerC,controllerE);
+        private static TelaCham telaC = new TelaCham(controllerC, validadorC,controllerE);
+
+        private static void Main(string[] args)
+        {
+            menuPrincipal();
+        }
+        private static void menuPrincipal()
         {
             while (true)
             {
@@ -22,50 +34,16 @@ namespace Equipamentos_Junior
 
                 switch (opcao)
                 {
-                    case "1": menuEquipamentos(); break;
-                    case "2": menuChamados(); break;
+                    case "1": telaE.menu(); break;
+                    case "2": telaC.menu(); break;
 
                     default: erro("Comando incorreto!"); break;
                 }
             }
         }
-        public static void menuEquipamentos()
+        public static void erro(string mensagem)
         {
-            Console.WriteLine("1- para visualizar equipamentos cadastrados");
-            Console.WriteLine("2- para cadastrar novos equipamentos");
-            Console.WriteLine("3- para editar equipamentos");
-            Console.WriteLine("4- para excluir equipamentos");
-
-            string opcao = Console.ReadLine();
-
-            switch (opcao)
-            {
-                case "1": printArray(controller.Equip); break;
-                case "2": cadastrarEquip(-1); break;
-                case "3": edit(controller.Equip); break;
-                case "4": excluir(controller.Equip); break;
-
-                default: erro("Comando incorreto!"); break;
-            }
-        }
-        public static void menuChamados()
-        {
-            Console.WriteLine("1- para visualizar chamados cadastrados");
-            Console.WriteLine("2- para cadastrar novos chamados");
-            Console.WriteLine("3- para editar chamados");
-            Console.WriteLine("4- para excluir chamados\n");
-
-            string opcao = Console.ReadLine();
-
-            switch (opcao)
-            {
-                case "1": printArray(controller.Cham); break;
-                case "2": cadastrarCham(-1); break;
-                case "3": edit(controller.Cham); break;
-                case "4": excluir(controller.Cham); break;
-
-                default: erro("Comando incorreto!"); break;
-            }
+            Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(mensagem); Console.ResetColor();
         }
         public static bool printArray(Object[] array)
         {
@@ -82,69 +60,6 @@ namespace Equipamentos_Junior
                 }
                 return true;
             }
-        }
-        private static void cadastrarEquip(int indice)
-        {
-            Equipamentos eq = Validador.equipValido();
-
-            if (Validador.itemDuplicado(controller.Equip, eq) && indice == -1) { erro("Item já esta cadastrado"); }
-
-            else
-            {
-                controller.cadastrar(indice, eq, controller.Equip);
-            }
-        }
-        private static void cadastrarCham(int indice)
-        {
-            if (controller.Equip.Length == 0) { erro("Nenhum equipamento registrado!"); }
-            else
-            {
-                Chamados c = Validador.chamadoValido(controller.Equip);
-
-                if (Validador.itemDuplicado(controller.Cham, c) && indice == -1) { erro("Item já esta cadastrado"); }
-
-                else
-                {
-                    controller.cadastrar(indice, c, controller.Cham);
-                }
-            }
-        }
-        private static void excluir(Object[] array)
-        {
-            while (true)
-            {
-                Console.WriteLine("Digite o indice para exclusão ou digite 0 para cancelar");
-                if (!printArray(array)) { break; }
-                string opcao = Console.ReadLine();
-                if (opcao == "0") { break; }
-
-                if (!int.TryParse(opcao, out int opcaoInt) || opcaoInt < 0 || opcaoInt > array.Length) { continue; }
-
-                if (array.Equals(controller.Equip) && Validador.equipDependente(controller.Cham, controller.Equip[opcaoInt - 1]))
-                {
-                    erro("Este equipamento está vinculado a um chamado"); break;
-                }
-                controller.excluir(opcaoInt, array); break;
-            }
-        }
-        private static void edit(Object[] array)
-        {
-            while (true)
-            {
-                Console.WriteLine("Digite o indice para editar ou digite 0 para cancelar");
-                if (!printArray(array)) { break; }
-                string opcao = Console.ReadLine();
-                if (opcao == "0") { break; }
-
-                if (!int.TryParse(opcao, out int opcaoInt) || opcaoInt < 0 || opcaoInt > array.Length) { continue; }
-
-                if (array.Equals(controller.Equip)) { cadastrarEquip(opcaoInt); break; }
-                else if (array.Equals(controller.Cham)) { cadastrarCham(opcaoInt); break; }
-            }
-        }
-        private static void erro(string mensagem)
-        {
-            Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(mensagem); Console.ResetColor();
         }
     }
 }

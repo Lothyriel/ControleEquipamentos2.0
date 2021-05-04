@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Equipamentos_Junior
+namespace Controle_de_Equipamentos.Domínio
 {
-    class Equipamentos
+    class Equipamento
     {
         private string nome;
         private double preco;
@@ -10,7 +10,7 @@ namespace Equipamentos_Junior
         private DateTime data_fabricacao;
         private string fabricante;
 
-        public Equipamentos(string nome, double preco, int nro_serie, DateTime data_fabricacao, string fabricante)
+        public Equipamento(string nome, double preco, int nro_serie, DateTime data_fabricacao, string fabricante)
         {
             this.nome = nome;
             this.preco = preco;
@@ -27,7 +27,7 @@ namespace Equipamentos_Junior
         }
         public override bool Equals(object obj)
         {
-            return (this.nro_serie == ((Equipamentos)obj).nro_serie);
+            return (this.nro_serie == ((Equipamento)obj).nro_serie);
         }
         public override int GetHashCode() //    ^ = XOR, ou exclusivo, em operacoes com inteiros os transforma em binario faz a operacao bit a bit
         {
