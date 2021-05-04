@@ -6,12 +6,13 @@ namespace Controle_de_Equipamentos.Telas
 {
     class Tela
     {
-        private Controlador controller;
+        protected Controlador controller;
         protected Validador validador;
-        public Tela(Controlador controller)
+
+        public Tela(Controlador controller,Validador validador)
         {
             this.controller = controller;
-            menu();
+            this.validador = validador;
         }
 
         public void menu()
@@ -68,7 +69,7 @@ namespace Controle_de_Equipamentos.Telas
                 controller.excluir(opcaoInt);
             }
         }
-        public virtual void edit()
+        public void edit()
         {
             int opcaoInt = 0;
             if (getIndiceArray(ref opcaoInt))

@@ -5,7 +5,7 @@ namespace Controle_de_Equipamentos.Validadores
 {
     class Validador
     {
-        private Controlador controller;
+        protected Controlador controller;
         public Validador(Controlador controller)
         {
             this.controller = controller;

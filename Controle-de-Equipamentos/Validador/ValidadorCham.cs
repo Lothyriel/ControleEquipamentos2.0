@@ -6,11 +6,9 @@ namespace Controle_de_Equipamentos.Validadores
 {
     class ValidadorCham : Validador
     {
-        private Controlador controller;
         private ControladorEquip controllerE;
         public ValidadorCham(Controlador controller,ControladorEquip controllerE) : base(controller)
         {
-            this.controller = controller;
             this.controllerE = controllerE;
         }
         public override Object objetoValido()

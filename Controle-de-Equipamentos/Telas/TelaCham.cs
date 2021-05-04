@@ -7,20 +7,18 @@ namespace Controle_de_Equipamentos.Telas
 {
     class TelaCham : Tela
     {
-        private Controlador controller;
         private ControladorEquip controllerE;
         private new ValidadorCham validador;
 
-        public TelaCham(Controlador controller, ControladorEquip controllerE)  : base(controller)
+        public TelaCham(ControladorCham controller, ControladorEquip controllerE)  : base(controller, new ValidadorCham(controller, controllerE))
         {
-            this.controller = controller;
             this.controllerE = controllerE;
-            validador = (ValidadorCham)base.validador;
+            validador = new ValidadorCham(controller, controllerE);
         }
 
         public override void cadastrar(int indice)
         {
-            if (controllerE.Array.Length == 0) { Program.erro("Nenhum equipamento registrado!"); }
+            if (controllerE == null||controllerE.Array == null||controllerE.Array.Length==0) { Program.erro("Nenhum equipamento registrado!"); }
             else
             {
                 base.cadastrar(indice);
@@ -29,11 +27,12 @@ namespace Controle_de_Equipamentos.Telas
         public override void excluir()
         {
             int opcao = 0;
-            if (getIndiceArray(ref opcao) && validador.equipDependente((Equipamento)controller.Array[opcao - 1]))
+            bool indiceValido = getIndiceArray(ref opcao);
+            if (indiceValido && validador.equipDependente((Equipamento)controller.Array[opcao - 1]))
             {
                 Program.erro("Este equipamento está vinculado a um chamado");
             }
-            else { base.excluir(); }
+            else if(indiceValido){ base.excluir(); }
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using Controle_de_Equipamentos.Controladores;
-using Controle_de_Equipamentos.Validadores;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controle_de_Equipamentos.Telas
 {
@@ -15,7 +10,8 @@ namespace Controle_de_Equipamentos.Telas
             ControladorEquip controllerE = new ControladorEquip();
             ControladorCham controllerC = new ControladorCham();
 
-            Tela tela;
+            TelaEquip telaE = new TelaEquip(controllerE);
+            TelaCham telaC = new TelaCham(controllerC, controllerE);
 
             while (true)
             {
@@ -30,8 +26,8 @@ namespace Controle_de_Equipamentos.Telas
 
                 switch (opcao)
                 {
-                    case "1": tela = new TelaEquip(controllerE); break;
-                    case "2": tela = new TelaCham(controllerC,controllerE); break;
+                    case "1": telaE.menu(); break;
+                    case "2": telaC.menu(); break;
 
                     default: Program.erro("Comando incorreto!"); break;
                 }
