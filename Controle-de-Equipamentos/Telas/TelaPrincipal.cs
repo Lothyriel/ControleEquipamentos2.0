@@ -10,7 +10,7 @@ namespace Controle_de_Equipamentos.Telas
             ControladorEquip controllerE = new ControladorEquip();
             ControladorCham controllerC = new ControladorCham();
 
-            TelaEquip telaE = new TelaEquip(controllerE);
+            TelaEquip telaE = new TelaEquip(controllerE,controllerC);
             TelaCham telaC = new TelaCham(controllerC, controllerE);
 
             while (true)

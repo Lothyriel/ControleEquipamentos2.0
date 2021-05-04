@@ -24,15 +24,5 @@ namespace Controle_de_Equipamentos.Telas
                 base.cadastrar(indice);
             }
         }
-        public override void excluir()
-        {
-            int opcao = 0;
-            bool indiceValido = getIndiceArray(ref opcao);
-            if (indiceValido && validador.equipDependente((Equipamento)controller.Array[opcao - 1]))
-            {
-                Program.erro("Este equipamento está vinculado a um chamado");
-            }
-            else if(indiceValido){ base.excluir(); }
-        }
     }
 }

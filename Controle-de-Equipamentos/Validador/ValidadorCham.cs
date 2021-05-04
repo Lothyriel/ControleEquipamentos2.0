@@ -45,13 +45,5 @@ namespace Controle_de_Equipamentos.Validadores
 
             return new Chamado(titulo, desc, (Equipamento)controllerE.Array[iEquip - 1], data_ab);
         }
-        public bool equipDependente(Equipamento eq)
-        {
-            foreach (Chamado c in controllerE.Array)
-            {
-                if (c.Equipamento == eq) return true;
-            }
-            return false;
-        }
     }
 }

@@ -6,8 +6,10 @@ namespace Controle_de_Equipamentos.Validadores
 {
     class ValidadorEquip : Validador
     {
-        public ValidadorEquip(Controlador controller) : base(controller)
+        private ControladorCham controllerC;
+        public ValidadorEquip(Controlador controller,ControladorCham controllerC) : base(controller)
         {
+            this.controllerC = controllerC;
         }
         public override Object objetoValido()
         {
@@ -47,6 +49,14 @@ namespace Controle_de_Equipamentos.Validadores
                 if (fabricante.Length > 1) { break; }
             }
             return new Equipamento(nome, preco, nro_serie, data_fabr, fabricante);
+        }
+        public bool equipDependente(Equipamento eq)
+        {
+            foreach (Chamado c in controllerC.Array)
+            {
+                if (c.Equipamento == eq) return true;
+            }
+            return false;
         }
     }
 }
