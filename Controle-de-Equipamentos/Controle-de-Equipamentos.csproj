@@ -53,6 +53,7 @@
     <Compile Include="Telas\Tela.cs" />
     <Compile Include="Telas\TelaEquip.cs" />
     <Compile Include="Telas\TelaCham.cs" />
+    <Compile Include="Telas\TelaPrincipal.cs" />
     <Compile Include="Validador\ValidadorEquip.cs" />
     <Compile Include="Validador\Validador.cs" />
     <Compile Include="Validador\ValidadorCham.cs" />
