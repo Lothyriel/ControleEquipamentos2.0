@@ -35,7 +35,7 @@ namespace Controle_de_Equipamentos.Telas
                 default: Program.erro("Comando incorreto!"); break;
             }
         }
-        protected bool getIndice(ref int opcaoInt)
+        protected bool getIndiceArray(ref int opcaoInt)
         {
             while (true)
             {
@@ -63,7 +63,7 @@ namespace Controle_de_Equipamentos.Telas
         public virtual void excluir()
         {
             int opcaoInt = 0;
-            if (getIndice(ref opcaoInt))
+            if (getIndiceArray(ref opcaoInt))
             {
                 controller.excluir(opcaoInt);
             }
@@ -71,7 +71,7 @@ namespace Controle_de_Equipamentos.Telas
         public virtual void edit()
         {
             int opcaoInt = 0;
-            if (getIndice(ref opcaoInt))
+            if (getIndiceArray(ref opcaoInt))
             {
                 cadastrar(opcaoInt);
             }

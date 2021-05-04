@@ -7,20 +7,16 @@ namespace Controle_de_Equipamentos
 {
     class Program
     {
-        private static ControladorEquip controllerE = new ControladorEquip();
-        private static ValidadorEquip validadorE = new ValidadorEquip(controllerE);
-        private static TelaEquip telaE = new TelaEquip(controllerE, validadorE);
-
-        private static ControladorCham controllerC = new ControladorCham();
-        private static ValidadorCham validadorC = new ValidadorCham(controllerC,controllerE);
-        private static TelaCham telaC = new TelaCham(controllerC, validadorC,controllerE);
-
         private static void Main(string[] args)
         {
-            menuPrincipal();
-        }
-        private static void menuPrincipal()
-        {
+            ControladorEquip controllerE = new ControladorEquip();
+            ValidadorEquip validadorE = new ValidadorEquip(controllerE);
+            TelaEquip telaE = new TelaEquip(controllerE, validadorE);
+
+            ControladorCham controllerC = new ControladorCham();
+            ValidadorCham validadorC = new ValidadorCham(controllerC, controllerE);
+            TelaCham telaC = new TelaCham(controllerC, validadorC, controllerE);
+
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;

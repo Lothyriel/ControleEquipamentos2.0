@@ -16,7 +16,6 @@ namespace Controle_de_Equipamentos.Controladores
                 array[array.Length - 1] = obj;
             }
             else { array[indice - 1] = obj; }
-            //Salvando as mudanças no array da classe
         }
         public virtual void excluir(int indice)
         {
