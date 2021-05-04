@@ -10,7 +10,7 @@ namespace Controle_de_Equipamentos.Telas
         private Controlador controller;
         private ValidadorCham validador;
         private ControladorEquip controllerE;
-        public TelaCham(Controlador controller, Validador validador, ControladorEquip controllerE) : base(controller, validador)
+        public TelaCham(Controlador controller, Validador validador, ControladorEquip controllerE)  : base(controller, validador)
         {
             this.controller = controller;
             this.validador = (ValidadorCham)validador;
