@@ -8,13 +8,14 @@ namespace Controle_de_Equipamentos.Telas
     class TelaCham : Tela
     {
         private Controlador controller;
-        private ValidadorCham validador;
         private ControladorEquip controllerE;
-        public TelaCham(Controlador controller, Validador validador, ControladorEquip controllerE)  : base(controller, validador)
+        private new ValidadorCham validador;
+
+        public TelaCham(Controlador controller, ControladorEquip controllerE)  : base(controller)
         {
             this.controller = controller;
-            this.validador = (ValidadorCham)validador;
             this.controllerE = controllerE;
+            validador = (ValidadorCham)base.validador;
         }
 
         public override void cadastrar(int indice)

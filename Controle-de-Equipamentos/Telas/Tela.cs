@@ -7,11 +7,11 @@ namespace Controle_de_Equipamentos.Telas
     class Tela
     {
         private Controlador controller;
-        private Validador validador;
-        public Tela(Controlador controller, Validador validador)
+        protected Validador validador;
+        public Tela(Controlador controller)
         {
             this.controller = controller;
-            this.validador = validador;
+            menu();
         }
 
         public void menu()

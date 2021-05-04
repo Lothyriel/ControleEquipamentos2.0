@@ -1,4 +1,5 @@
 ﻿using Controle_de_Equipamentos.Controladores;
+using Controle_de_Equipamentos.Domínio;
 using Controle_de_Equipamentos.Telas;
 using Controle_de_Equipamentos.Validadores;
 using System;
@@ -9,33 +10,7 @@ namespace Controle_de_Equipamentos
     {
         private static void Main(string[] args)
         {
-            ControladorEquip controllerE = new ControladorEquip();
-            ValidadorEquip validadorE = new ValidadorEquip(controllerE);
-            TelaEquip telaE = new TelaEquip(controllerE, validadorE);
-
-            ControladorCham controllerC = new ControladorCham();
-            ValidadorCham validadorC = new ValidadorCham(controllerC, controllerE);
-            TelaCham telaC = new TelaCham(controllerC, validadorC, controllerE);
-
-            while (true)
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\nDigite: ");
-                Console.WriteLine("1- para visualizar o menu de equipamentos");
-                Console.WriteLine("2- para visualizar o menu de chamados");
-                Console.ResetColor();
-
-                string opcao = Console.ReadLine();
-                Console.Clear();
-
-                switch (opcao)
-                {
-                    case "1": telaE.menu(); break;
-                    case "2": telaC.menu(); break;
-
-                    default: erro("Comando incorreto!"); break;
-                }
-            }
+            new TelaPrincipal();
         }
         public static void erro(string mensagem)
         {
