@@ -1,16 +1,15 @@
 ﻿using System;
 using Controle_de_Equipamentos.Controladores;
-using Controle_de_Equipamentos.Domínio;
 using Controle_de_Equipamentos.Validadores;
 
 namespace Controle_de_Equipamentos.Telas
 {
-    class TelaCham : Tela
+    class TelaChamados : Tela
     {
-        private ControladorEquip controllerE;
+        private ControladorEquipamentos controllerE;
         private new ValidadorCham validador;
 
-        public TelaCham(ControladorCham controller, ControladorEquip controllerE)  : base(controller, new ValidadorCham(controller, controllerE))
+        public TelaChamados(ControladorChamados controller, ControladorEquipamentos controllerE)  : base(controller, new ValidadorCham(controller, controllerE),"Tela Chamados")
         {
             this.controllerE = controllerE;
             validador = new ValidadorCham(controller, controllerE);
@@ -18,7 +17,7 @@ namespace Controle_de_Equipamentos.Telas
 
         public override void cadastrar(int indice)
         {
-            if (controllerE == null||controllerE.Array == null||controllerE.Array.Length==0) { Program.erro("Nenhum equipamento registrado!"); }
+            if (controllerE == null||controllerE.Registros == null||controllerE.Registros.Length==0) { Program.erro("Nenhum equipamento registrado!"); }
             else
             {
                 base.cadastrar(indice);

@@ -4,10 +4,10 @@ using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class ValidadorEquip : Validador
+    class ValidadorEquipamento : Validador
     {
-        private ControladorCham controllerC;
-        public ValidadorEquip(Controlador controller,ControladorCham controllerC) : base(controller)
+        private ControladorChamados controllerC;
+        public ValidadorEquipamento(Controlador controller,ControladorChamados controllerC) : base(controller)
         {
             this.controllerC = controllerC;
         }
@@ -52,7 +52,7 @@ namespace Controle_de_Equipamentos.Validadores
         }
         public bool equipDependente(Equipamento eq)
         {
-            foreach (Chamado c in controllerC.Array)
+            foreach (Chamado c in controllerC.Registros)
             {
                 if (c.Equipamento == eq) return true;
             }

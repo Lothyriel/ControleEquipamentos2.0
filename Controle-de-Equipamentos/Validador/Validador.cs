@@ -17,7 +17,7 @@ namespace Controle_de_Equipamentos.Validadores
         }
         public bool itemDuplicado(Object ob)
         {
-            foreach (Object o in controller.Array)
+            foreach (Object o in controller.Registros)
             {
                 if (ob.Equals(o)) { return true; }
             }

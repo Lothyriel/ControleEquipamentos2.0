@@ -4,10 +4,10 @@ using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class ValidadorCham : Validador
+    class ValidadorChamado : Validador
     {
-        private ControladorEquip controllerE;
-        public ValidadorCham(Controlador controller,ControladorEquip controllerE) : base(controller)
+        private ControladorEquipamentos controllerE;
+        public ValidadorChamado(Controlador controller,ControladorEquipamentos controllerE) : base(controller)
         {
             this.controllerE = controllerE;
         }
@@ -32,9 +32,9 @@ namespace Controle_de_Equipamentos.Validadores
             while (true)
             {
                 Console.WriteLine("Digite o número do equipamento");
-                Program.printArray(controllerE.Array);
+                Program.printArray(controllerE.Registros);
                 string equipStr = Console.ReadLine(); //"1"; //
-                if (int.TryParse(equipStr, out iEquip) && iEquip <= controllerE.Array.Length && iEquip > 0) { break; }
+                if (int.TryParse(equipStr, out iEquip) && iEquip <= controllerE.Registros.Length && iEquip > 0) { break; }
             }
             while (true)
             {
@@ -43,7 +43,7 @@ namespace Controle_de_Equipamentos.Validadores
                 if (DateTime.TryParse(data_abStr, out data_ab) && data_ab.CompareTo(DateTime.Now) < 0) { break; };
             }
 
-            return new Chamado(titulo, desc, (Equipamento)controllerE.Array[iEquip - 1], data_ab);
+            return new Chamado(titulo, desc, (Equipamento)controllerE.Registros[iEquip - 1], data_ab);
         }
     }
 }

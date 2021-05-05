@@ -8,15 +8,18 @@ namespace Controle_de_Equipamentos.Telas
     {
         protected Controlador controller;
         protected Validador validador;
+        protected String título;
 
-        public Tela(Controlador controller,Validador validador)
+        public Tela(Controlador controller, Validador validador, String título)
         {
             this.controller = controller;
             this.validador = validador;
+            this.título = título;
         }
 
         public void menu()
         {
+            Console.WriteLine(título + "\n");
             Console.WriteLine("1- para visualizar registros");
             Console.WriteLine("2- para cadastrar novos registros");
             Console.WriteLine("3- para editar registros");
@@ -27,7 +30,7 @@ namespace Controle_de_Equipamentos.Telas
 
             switch (opcao)
             {
-                case "1": Program.printArray(controller.Array); break;
+                case "1": Program.printArray(controller.Registros); break;
                 case "2": cadastrar(-1); break;
                 case "3": edit(); break;
                 case "4": excluir(); break;
@@ -36,16 +39,22 @@ namespace Controle_de_Equipamentos.Telas
                 default: Program.erro("Comando incorreto!"); break;
             }
         }
+
+        public virtual void sexo()
+        {
+            Console.WriteLine("nao deu certo");
+        }
+
         protected bool getIndiceArray(ref int opcaoInt)
         {
             while (true)
             {
                 Console.WriteLine("Digite o indice para editar ou digite 0 para cancelar");
-                if (!Program.printArray(controller.Array)) { return false; }
+                if (!Program.printArray(controller.Registros)) { return false; }
                 string opcao = Console.ReadLine();
                 if (opcao == "0") { return false; }
 
-                if (!int.TryParse(opcao, out opcaoInt) || opcaoInt < 0 || opcaoInt > controller.Array.Length) { continue; }
+                if (!int.TryParse(opcao, out opcaoInt) || opcaoInt < 0 || opcaoInt > controller.Registros.Length) { continue; }
 
                 return true;
             }
