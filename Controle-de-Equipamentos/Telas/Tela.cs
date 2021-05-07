@@ -40,7 +40,7 @@ namespace Controle_de_Equipamentos.Telas
             }
         }
 
-        protected bool getIndiceArray(ref int opcaoInt)
+        protected bool escolherOpcaoArray(ref int opcaoInt)
         {
             while (true)
             {
@@ -68,7 +68,7 @@ namespace Controle_de_Equipamentos.Telas
         public virtual void excluir()
         {
             int opcaoInt = 0;
-            if (getIndiceArray(ref opcaoInt))
+            if (escolherOpcaoArray(ref opcaoInt))
             {
                 controller.excluir(opcaoInt);
             }
@@ -76,7 +76,7 @@ namespace Controle_de_Equipamentos.Telas
         public void edit()
         {
             int opcaoInt = 0;
-            if (getIndiceArray(ref opcaoInt))
+            if (escolherOpcaoArray(ref opcaoInt))
             {
                 cadastrar(opcaoInt);
             }

@@ -15,7 +15,7 @@ namespace Controle_de_Equipamentos.Telas
         public override void excluir()
         {
             int opcao = 0;
-            bool indiceValido = getIndiceArray(ref opcao);
+            bool indiceValido = escolherOpcaoArray(ref opcao);
             if (indiceValido && validador.equipDependente((Equipamento)controller.Registros[opcao - 1]))
             {
                 Program.erro("Este equipamento está vinculado a um chamado");

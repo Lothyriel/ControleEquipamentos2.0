@@ -19,7 +19,7 @@ namespace Controle_de_Equipamentos.Domínio
             this.nro_tel = nro_tel;
         }
 
-        public string Nome { get => nome; set => nome = value; }
+        public string Nome { get => nome;}
 
         public override bool Equals(object obj)
         {
