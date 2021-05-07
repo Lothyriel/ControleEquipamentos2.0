@@ -35,7 +35,7 @@ namespace Controle_de_Equipamentos.Telas
                 switch (opcao)
                 {
                     case "1": tela = new TelaEquipamentos(controllerE, controllerC); break;
-                    case "2": tela = new TelaChamados(controllerC, controllerE); break;
+                    case "2": tela = new TelaChamados(controllerC, controllerE, controllerS); break;
                     case "3": tela = new TelaSolicitantes(controllerS); break;
 
                     default: Program.erro("Comando incorreto!"); break;
