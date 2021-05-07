@@ -7,6 +7,7 @@ namespace Controle_de_Equipamentos.Telas
     {
         private ControladorEquipamentos controllerE = new ControladorEquipamentos();
         private ControladorChamados controllerC = new ControladorChamados();
+        private ControladorSolicitante controllerS = new ControladorSolicitante();
         private Tela tela = null;
 
         public TelaPrincipal()
@@ -25,6 +26,7 @@ namespace Controle_de_Equipamentos.Telas
                 Console.WriteLine("\nDigite: ");
                 Console.WriteLine("1- para visualizar o menu de equipamentos");
                 Console.WriteLine("2- para visualizar o menu de chamados");
+                Console.WriteLine("3- para visualizar o menu de solicitantes");
                 Console.ResetColor();
 
                 string opcao = Console.ReadLine();
@@ -34,6 +36,7 @@ namespace Controle_de_Equipamentos.Telas
                 {
                     case "1": tela = new TelaEquipamentos(controllerE, controllerC); break;
                     case "2": tela = new TelaChamados(controllerC, controllerE); break;
+                    case "3": tela = new TelaSolicitantes(controllerS); break;
 
                     default: Program.erro("Comando incorreto!"); break;
                 }

@@ -7,13 +7,15 @@ namespace Controle_de_Equipamentos.Validadores
     class ValidadorChamado : Validador
     {
         private ControladorEquipamentos controllerE;
-        public ValidadorChamado(Controlador controller,ControladorEquipamentos controllerE) : base(controller)
+        private ControladorSolicitante controllerS;
+        public ValidadorChamado(Controlador controller, ControladorEquipamentos controllerE,ControladorSolicitante controllerS) : base(controller)
         {
             this.controllerE = controllerE;
+            this.controllerS = controllerS;
         }
         public override Object objetoValido()
         {
-            int iEquip;
+            int iEquip, iSoli;
             string desc, titulo;
             DateTime data_ab;
 
@@ -42,8 +44,15 @@ namespace Controle_de_Equipamentos.Validadores
                 string data_abStr = Console.ReadLine(); //"27/04/2011"; //
                 if (DateTime.TryParse(data_abStr, out data_ab) && data_ab.CompareTo(DateTime.Now) < 0) { break; };
             }
+            while (true)
+            {
+                Console.WriteLine("Digite o solicitante do chamado");
+                Program.printArray(controllerS.Registros);
+                string soliStr = Console.ReadLine(); //"1"; //
+                if (int.TryParse(soliStr, out iSoli) && iEquip <= controllerS.Registros.Length && iSoli > 0) { break; }
+            }
 
-            return new Chamado(titulo, desc, (Equipamento)controllerE.Registros[iEquip - 1], data_ab);
+            return new Chamado(titulo, desc, (Equipamento)controllerE.Registros[iEquip - 1], data_ab, (Solicitante)controllerS.Registros[iSoli - 1]);
         }
     }
 }

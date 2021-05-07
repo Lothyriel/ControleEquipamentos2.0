@@ -7,12 +7,12 @@ namespace Controle_de_Equipamentos.Telas
     class TelaChamados : Tela
     {
         private ControladorEquipamentos controllerE;
-        private new ValidadorCham validador;
+        private new ValidadorChamado validador;
 
-        public TelaChamados(ControladorChamados controller, ControladorEquipamentos controllerE)  : base(controller, new ValidadorCham(controller, controllerE),"Tela Chamados")
+        public TelaChamados(ControladorChamados controller, ControladorEquipamentos controllerE)  : base(controller, new ValidadorChamado(controller, controllerE),"Tela Chamados")
         {
             this.controllerE = controllerE;
-            validador = new ValidadorCham(controller, controllerE);
+            validador = new ValidadorChamado(controller, controllerE);
         }
 
         public override void cadastrar(int indice)

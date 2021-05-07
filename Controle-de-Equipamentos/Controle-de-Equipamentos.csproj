@@ -45,18 +45,22 @@
   <ItemGroup>
     <Compile Include="Controladores\ControladorChamados.cs" />
     <Compile Include="Controladores\ControladorEquipamentos.cs" />
+    <Compile Include="Controladores\ControladorSolicitante.cs" />
     <Compile Include="Domínio\Chamado.cs" />
     <Compile Include="Controladores\Controlador.cs" />
     <Compile Include="Domínio\Equipamento.cs" />
+    <Compile Include="Domínio\Solicitante.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Telas\Tela.cs" />
     <Compile Include="Telas\TelaEquipamentos.cs" />
     <Compile Include="Telas\TelaChamados.cs" />
     <Compile Include="Telas\TelaPrincipal.cs" />
-    <Compile Include="Validador\ValidadorEquipamento.cs" />
-    <Compile Include="Validador\Validador.cs" />
-    <Compile Include="Validador\ValidadorChamado.cs" />
+    <Compile Include="Telas\TelaSolicitantes.cs" />
+    <Compile Include="Validadores\ValidadorEquipamento.cs" />
+    <Compile Include="Validadores\Validador.cs" />
+    <Compile Include="Validadores\ValidadorChamado.cs" />
+    <Compile Include="Validadores\ValidadorSolicitante.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

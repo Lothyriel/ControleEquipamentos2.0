@@ -40,11 +40,6 @@ namespace Controle_de_Equipamentos.Telas
             }
         }
 
-        public virtual void sexo()
-        {
-            Console.WriteLine("nao deu certo");
-        }
-
         protected bool getIndiceArray(ref int opcaoInt)
         {
             while (true)

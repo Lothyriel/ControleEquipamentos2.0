@@ -27,7 +27,7 @@ namespace Controle_de_Equipamentos.Domínio
         }
         public override bool Equals(object obj)
         {
-            return (this.nro_serie == ((Equipamento)obj).nro_serie);
+            return (nro_serie == ((Equipamento)obj).nro_serie);
         }
         public override int GetHashCode() //    ^ = XOR, ou exclusivo, em operacoes com inteiros os transforma em binario faz a operacao bit a bit
         {
