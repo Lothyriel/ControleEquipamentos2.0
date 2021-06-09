@@ -4,15 +4,14 @@ using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class ValidadorSolicitante : Validador
+    class ValidadorSolicitante : Validador<Solicitante>
     {
-        public ValidadorSolicitante(ControladorSolicitante controller) : base(controller)
+        public ValidadorSolicitante(Controlador<Solicitante> controller) : base(controller)
         {
 
         }
-        public override object objetoValido()
+        public override Solicitante objetoValido()
         {
-            int nro_tel;
             string email, nome, nro_telS;
 
             while (true)
@@ -31,7 +30,7 @@ namespace Controle_de_Equipamentos.Validadores
             {
                 Console.WriteLine("Digite o número de telefone do solicitante");
                 nro_telS = Console.ReadLine(); //"99790818"; //
-                if (nro_telS.Length > 8 && int.TryParse(nro_telS, out nro_tel)) { break; }
+                if (nro_telS.Length > 8 && int.TryParse(nro_telS, out _)) { break; }
             }
 
             return new Solicitante(nome, email, nro_telS);

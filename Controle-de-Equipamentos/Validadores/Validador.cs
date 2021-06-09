@@ -1,23 +1,18 @@
 ﻿using Controle_de_Equipamentos.Controladores;
-using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class Validador
+    abstract class Validador<T>
     {
-        protected Controlador controller;
-        public Validador(Controlador controller)
+        protected Controlador<T> controller;
+        public Validador(Controlador<T> controller)
         {
             this.controller = controller;
         }
-        public virtual Object objetoValido()
+        public abstract T objetoValido();
+        public bool itemDuplicado(T ob)
         {
-            Console.WriteLine("Voce nao deveria estar vendo isto!");
-            return null;
-        }
-        public bool itemDuplicado(Object ob)
-        {
-            foreach (Object o in controller.Registros)
+            foreach (T o in controller.Registros)
             {
                 if (ob.Equals(o)) { return true; }
             }

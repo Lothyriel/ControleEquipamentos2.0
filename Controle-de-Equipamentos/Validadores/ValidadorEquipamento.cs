@@ -4,14 +4,14 @@ using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class ValidadorEquipamento : Validador
+    class ValidadorEquipamento : Validador<Equipamento>
     {
-        private ControladorChamados controllerC;
-        public ValidadorEquipamento(Controlador controller,ControladorChamados controllerC) : base(controller)
+        private Controlador<Chamado> controllerC;
+        public ValidadorEquipamento(Controlador<Equipamento> controller, Controlador<Chamado> controllerC) : base(controller)
         {
             this.controllerC = controllerC;
         }
-        public override Object objetoValido()
+        public override Equipamento objetoValido()
         {
             int nro_serie;
             double preco;

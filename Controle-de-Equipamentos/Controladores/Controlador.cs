@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Controle_de_Equipamentos.Telas;
+using System;
 
 namespace Controle_de_Equipamentos.Controladores
 {
-    class Controlador
+    class Controlador <T>
     {
-        protected Object[] registros = new Object[0];
+        protected T[] registros = new T[0];
 
-        public virtual Object[] Registros { get => registros; }
+        public virtual T[] Registros { get => registros; }
 
-        public void cadastrar(int indice, Object obj)
+        public void cadastrar(int indice, T obj)
         {
             if (indice == -1)
             {
@@ -22,7 +23,7 @@ namespace Controle_de_Equipamentos.Controladores
             for (int i = indice; i < Registros.Length; i++)
             {
                 Program.printArray(Registros);
-                Object obj = registros[i];
+                T obj = registros[i];
                 registros[i - 1] = obj;
             }
             Array.Resize(ref registros, registros.Length - 1);

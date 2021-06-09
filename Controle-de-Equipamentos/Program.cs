@@ -3,6 +3,7 @@ using Controle_de_Equipamentos.Domínio;
 using Controle_de_Equipamentos.Telas;
 using Controle_de_Equipamentos.Validadores;
 using System;
+using System.Collections;
 
 namespace Controle_de_Equipamentos
 {
@@ -16,19 +17,17 @@ namespace Controle_de_Equipamentos
         {
             Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(mensagem); Console.ResetColor();
         }
-        public static bool printArray(Object[] array)
+        public static bool printArray(IList array)
         {
-            if (array.Length == 0)
+            if (array.Count == 0)
             {
                 erro("Nada cadastrado aqui!");
                 return false;
             }
             else
             {
-                for (int i = 0; i < array.Length; i++)
-                {
+                for (int i = 0; i < array.Count; i++)
                     Console.WriteLine("[" + (i + 1) + "] " + array[i]);
-                }
                 return true;
             }
         }

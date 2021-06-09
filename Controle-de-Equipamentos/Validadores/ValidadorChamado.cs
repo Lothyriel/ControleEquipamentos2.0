@@ -4,16 +4,16 @@ using System;
 
 namespace Controle_de_Equipamentos.Validadores
 {
-    class ValidadorChamado : Validador
+    class ValidadorChamado : Validador<Chamado>
     {
-        private ControladorEquipamentos controllerE;
-        private ControladorSolicitante controllerS;
-        public ValidadorChamado(Controlador controller, ControladorEquipamentos controllerE,ControladorSolicitante controllerS) : base(controller)
+        private Controlador<Equipamento> controllerE;
+        private Controlador<Solicitante> controllerS;
+        public ValidadorChamado(Controlador<Chamado> controller, Controlador<Equipamento> controllerE, Controlador<Solicitante> controllerS) : base(controller)
         {
             this.controllerE = controllerE;
             this.controllerS = controllerS;
         }
-        public override Object objetoValido()
+        public override Chamado objetoValido()
         {
             int iEquip, iSoli;
             string desc, titulo;
@@ -52,7 +52,7 @@ namespace Controle_de_Equipamentos.Validadores
                 if (int.TryParse(soliStr, out iSoli) && iEquip <= controllerS.Registros.Length && iSoli > 0) { break; }
             }
 
-            return new Chamado(titulo, desc, (Equipamento)controllerE.Registros[iEquip - 1], data_ab, (Solicitante)controllerS.Registros[iSoli - 1]);
+            return new Chamado(titulo, desc, controllerE.Registros[iEquip - 1], data_ab, controllerS.Registros[iSoli - 1]);
         }
     }
 }

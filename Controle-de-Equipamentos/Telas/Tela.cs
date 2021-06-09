@@ -1,22 +1,22 @@
 ﻿using Controle_de_Equipamentos.Controladores;
+using Controle_de_Equipamentos.Domínio;
 using Controle_de_Equipamentos.Validadores;
 using System;
 
 namespace Controle_de_Equipamentos.Telas
 {
-    class Tela
+    abstract class Tela <T>
     {
-        protected Controlador controller;
-        protected Validador validador;
+        protected Controlador<T> controller;
+        protected Validador<T> validador;
         protected String título;
 
-        public Tela(Controlador controller, Validador validador, String título)
+        public Tela(Controlador<T> controller, Validador<T> validador, String título)
         {
             this.controller = controller;
             this.validador = validador;
             this.título = título;
         }
-
         public void menu()
         {
             Console.WriteLine(título + "\n");
@@ -39,7 +39,6 @@ namespace Controle_de_Equipamentos.Telas
                 default: Program.erro("Comando incorreto!"); break;
             }
         }
-
         protected bool escolherOpcaoArray(ref int opcaoInt)
         {
             while (true)
@@ -56,30 +55,24 @@ namespace Controle_de_Equipamentos.Telas
         }
         public virtual void cadastrar(int indice)
         {
-            Object obj = validador.objetoValido();
+            T obj = validador.objetoValido();
 
-            if (validador.itemDuplicado(obj) && indice == -1) { Program.erro("Item já esta cadastrado"); }
-
+            if (validador.itemDuplicado(obj) && indice == -1)
+                Program.erro("Item já esta cadastrado");
             else
-            {
                 controller.cadastrar(indice, obj);
-            }
         }
         public virtual void excluir()
         {
             int opcaoInt = 0;
             if (escolherOpcaoArray(ref opcaoInt))
-            {
                 controller.excluir(opcaoInt);
-            }
         }
         public void edit()
         {
             int opcaoInt = 0;
             if (escolherOpcaoArray(ref opcaoInt))
-            {
                 cadastrar(opcaoInt);
-            }
         }
     }
 }

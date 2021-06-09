@@ -2,7 +2,7 @@
 
 namespace Controle_de_Equipamentos.Domínio
 {
-    class Equipamento
+    class Equipamento 
     {
         private string nome;
         private double preco;

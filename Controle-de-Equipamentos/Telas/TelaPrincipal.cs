@@ -1,15 +1,15 @@
 ﻿using Controle_de_Equipamentos.Controladores;
+using Controle_de_Equipamentos.Domínio;
 using System;
 
 namespace Controle_de_Equipamentos.Telas
 {
     class TelaPrincipal
     {
-        private ControladorEquipamentos controllerE = new ControladorEquipamentos();
-        private ControladorChamados controllerC = new ControladorChamados();
-        private ControladorSolicitante controllerS = new ControladorSolicitante();
-        private Tela tela = null;
-
+        private Controlador<Equipamento> controllerE = new Controlador<Equipamento>();
+        private Controlador<Chamado> controllerC = new Controlador<Chamado>();
+        private Controlador<Solicitante> controllerS = new Controlador<Solicitante>();
+        private dynamic tela;
         public TelaPrincipal()
         {
             while (true)
@@ -18,7 +18,7 @@ namespace Controle_de_Equipamentos.Telas
                 tela.menu();
             }
         }
-        public Tela selecionarTela()
+        public dynamic selecionarTela()
         {
             while (true)
             {
@@ -34,13 +34,12 @@ namespace Controle_de_Equipamentos.Telas
 
                 switch (opcao)
                 {
-                    case "1": tela = new TelaEquipamentos(controllerE, controllerC); break;
-                    case "2": tela = new TelaChamados(controllerC, controllerE, controllerS); break;
-                    case "3": tela = new TelaSolicitantes(controllerS); break;
+                    case "1": return new TelaEquipamentos(controllerE, controllerC);
+                    case "2": return new TelaChamados(controllerC, controllerE, controllerS);
+                    case "3": return new TelaSolicitantes(controllerS);
 
-                    default: Program.erro("Comando incorreto!"); break;
+                    default: Program.erro("Comando incorreto!"); return null;
                 }
-                return tela;
             }
         }
     }
