@@ -1,13 +1,12 @@
-﻿using Controle_de_Equipamentos.Telas;
-using System;
+﻿using System;
 
 namespace Controle_de_Equipamentos.Controladores
 {
     class Controlador <T>
     {
-        protected T[] registros = new T[0];
+        private T[] registros = new T[0];
 
-        public virtual T[] Registros { get => registros; }
+        public T[] Registros { get => registros; }
 
         public void cadastrar(int indice, T obj)
         {

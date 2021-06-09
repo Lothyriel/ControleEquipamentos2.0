@@ -1,7 +1,4 @@
-﻿using Controle_de_Equipamentos.Controladores;
-using Controle_de_Equipamentos.Domínio;
-using Controle_de_Equipamentos.Telas;
-using Controle_de_Equipamentos.Validadores;
+﻿using Controle_de_Equipamentos.Telas;
 using System;
 using System.Collections;
 

@@ -8,13 +8,11 @@ namespace Controle_de_Equipamentos.Telas
     {
         private Controlador<Equipamento> controllerE;
         private Controlador<Solicitante> controllerS;
-
         public TelaChamados(Controlador<Chamado> controller, Controlador<Equipamento> controllerE, Controlador<Solicitante> controllerS) : base(controller, new ValidadorChamado(controller, controllerE, controllerS), "Tela Chamados")
         {
             this.controllerE = controllerE;
             this.controllerS = controllerS;
         }
-
         public override void cadastrar(int indice)
         {
             if (controllerE.Registros.Length == 0)

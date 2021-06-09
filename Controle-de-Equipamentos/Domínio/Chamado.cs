@@ -18,7 +18,7 @@ namespace Controle_de_Equipamentos.Domínio
             this.data_abertura = data_abertura;
             this.solicitante = solicitante;
         }
-        internal Equipamento Equipamento { get => equipamento; }
+        public Equipamento Equipamento { get => equipamento; }
 
         private int diasAberto(DateTime data)
         {

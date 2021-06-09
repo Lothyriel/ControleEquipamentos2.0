@@ -1,11 +1,10 @@
 ﻿using Controle_de_Equipamentos.Controladores;
-using Controle_de_Equipamentos.Domínio;
 using Controle_de_Equipamentos.Validadores;
 using System;
 
 namespace Controle_de_Equipamentos.Telas
 {
-    abstract class Tela <T>
+    abstract class Tela<T>
     {
         protected Controlador<T> controller;
         protected Validador<T> validador;
@@ -39,20 +38,6 @@ namespace Controle_de_Equipamentos.Telas
                 default: Program.erro("Comando incorreto!"); break;
             }
         }
-        protected bool escolherOpcaoArray(ref int opcaoInt)
-        {
-            while (true)
-            {
-                Console.WriteLine("Digite o indice para editar ou digite 0 para cancelar");
-                if (!Program.printArray(controller.Registros)) { return false; }
-                string opcao = Console.ReadLine();
-                if (opcao == "0") { return false; }
-
-                if (!int.TryParse(opcao, out opcaoInt) || opcaoInt < 0 || opcaoInt > controller.Registros.Length) { continue; }
-
-                return true;
-            }
-        }
         public virtual void cadastrar(int indice)
         {
             T obj = validador.objetoValido();
@@ -73,6 +58,20 @@ namespace Controle_de_Equipamentos.Telas
             int opcaoInt = 0;
             if (escolherOpcaoArray(ref opcaoInt))
                 cadastrar(opcaoInt);
+        }
+        protected bool escolherOpcaoArray(ref int opcaoInt)
+        {
+            while (true)
+            {
+                Console.WriteLine("Digite o indice para editar ou digite 0 para cancelar");
+                if (!Program.printArray(controller.Registros)) { return false; }
+                string opcao = Console.ReadLine();
+                if (opcao == "0") { return false; }
+
+                if (!int.TryParse(opcao, out opcaoInt) || opcaoInt < 0 || opcaoInt > controller.Registros.Length) { continue; }
+
+                return true;
+            }
         }
     }
 }

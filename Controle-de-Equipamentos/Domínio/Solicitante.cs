@@ -21,12 +21,10 @@ namespace Controle_de_Equipamentos.Domínio
         {
             return email == ((Solicitante)obj).email;
         }
-
         public override int GetHashCode()
         {
             return nome.GetHashCode() ^ email.GetHashCode();
         }
-
         public override string ToString()
         {
             return "Solicitante{" + "Nome:" + nome + "/ Email: " + email + "/ Número_Telefone: " + nro_tel + '}';
